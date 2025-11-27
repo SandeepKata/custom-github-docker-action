@@ -1,14 +1,12 @@
-# Use an official Node.js runtime as a parent image
 FROM node:16
 
-# Set the working directory in the container
 WORKDIR /usr/src/app
 
-# Copy the entrypoint script to the container
-COPY entrypoint.sh /usr/src/app/entrypoint.sh
+# Copy entrypoint script into container working directory
+COPY entrypoint.sh .
 
-# Make the entrypoint script executable
+# Make script executable
 RUN chmod +x entrypoint.sh
 
-# Set the default command to run the entrypoint script
+# Run script when container starts
 ENTRYPOINT ["./entrypoint.sh"]
