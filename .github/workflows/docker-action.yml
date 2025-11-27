@@ -1,0 +1,17 @@
+name: Custom Action - Docker - Print Message
+
+on:
+  workflow_dispatch:
+
+jobs:
+  hello-docker:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Run Hello Docker Action
+        uses: ./.github/actions/hello-docker
+        with:
+          message: '🚀 GitHub Actions is Awesome!'
